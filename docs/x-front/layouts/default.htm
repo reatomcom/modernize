@@ -1,0 +1,31 @@
+[session]
+security = "user"
+redirect = "user/sign-in"
+
+[localePicker]
+forceUrl = 0
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% partial 'head' %}
+  {% styles %}
+</head>
+
+<body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl">
+  {% partial 'body-start' %}
+
+  {% partial 'header' %}
+
+  {% partial 'sidebar' %}
+
+  <main id="content" role="main" class="main">
+    {% page %}
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  {% partial 'body-end' %}
+  {% framework %}
+  {% scripts %}
+</body>
+</html>

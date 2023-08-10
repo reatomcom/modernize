@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-6">
+        
+        <div class="d-flex">
+            <div class="flex-shrink-0">
+                <div class="avatar avatar-lg avatar-light mt-lg-2">
+                    <span class="avatar-initials"><i class="{{ aimx.icon }}"></i></span>
+                </div>
+            </div>
+            <div class="flex-grow-1 ms-4">
+                <div class="row">
+                    <div class="col-lg mb-lg-0">
+                        <h1 class="page-header-title">{{ aimx.name|_ }}</h1>
+                        
+                        {% if aimx.tableButtons %}
+                        {% partial '@'~aimx.componentCode~'-table-buttons' listItem=listItem checked=checked user=user %}
+                        {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 text-end">
+        <div class="input-group">
+            {% if data.filterCount %}
+            <input class="form-control form-control-sm" name="data[search]" value="" placeholder="{{ 'Search disabled'|_ }}" disabled="disabled">                        
+            <button class="btn btn-sm btn-soft-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#aim-filter" aria-controls="aim-filter" data-request="onShowFilters">
+                <i class="bi-filter-circle"></i>
+                {{ 'Filter'|_ }}
+                <span class="badge bg-danger badge-danger">{{ data.filterCount }}</span>
+            </button>
+            <button class="btn btn-sm btn-soft-danger" type="button" data-request="onUnsetFilters">
+                <i class="bi-times"></i>
+                {{ 'Cancel filter'|_ }}
+            </button>
+            {% else %}
+            <input class="form-control form-control-sm" name="data[search]" value="{{ data.search }}" placeholder="{{ 'Search for...'|_ }}">                        
+            <button class="btn btn-sm btn-soft-primary" type="submit">
+                <i class="bi-search"></i>
+                {{ 'Serarch'|_ }}
+            </button>
+            <button class="btn btn-sm btn-soft-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#aim-filter" aria-controls="aim-filter" data-request="onShowFilters">
+                <i class="bi-filter-circle"></i>
+                {{ 'Filter'|_ }}
+            </button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+    </div>
+</div>

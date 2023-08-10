@@ -1,0 +1,23 @@
+[session]
+security = "all"
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% partial 'head' %}
+  {% styles %}
+</head>
+
+<body class="">
+  {% partial 'body-start' %}
+
+  <main id="content" role="main" class="main">
+    {% page %}
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  {% partial 'body-end' %}
+  {% framework extras %}
+  {% scripts %}
+</body>
+</html>

@@ -1,0 +1,52 @@
+<input type="hidden" name="data[page]" value="{{ data.page }}" id="aim-list-pageId" />
+<input type="hidden" name="data[filters]" value="{{ data.filters }}" id="shop-filter" />
+<input type="hidden" name="data[search_original]" value="{{ data.search }}" />
+<div class="content container">
+    
+    {% partial 'aim-list-header' listItem=listItem user=user %}
+    
+    <div class="row">
+        <div class="col-12 mb-3">
+            
+            <div class="table-responsive">
+                <table class="table table-nowrap table-hover table-align-middle">
+                    
+                    <thead class="thead-light">
+                        <tr>
+                            {% partial '@'~aimx.componentCode~'-table-header' user=user %}
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {% for listItem in listItems %}
+                        <tr id="list-row-{{ listItem.id }}" data-request-data="listItem: {{ listItem.id }}">
+                            {% partial '@'~aimx.componentCode~'-table-row' listItem=listItem checked=checked user=user %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>        
+    </div>
+    
+    <div class="row">
+        <div class="col-md-9" id="aim-list-pagination">
+            {{ listItems.render|raw }}
+        </div>
+        <div class="col-md-3 text-end">
+            {{ 'From'|_ }} {{ data.from }} {{ 'to'|_ }} {{ data.to }} ({{ 'In total'|_ }}: {{ listItems.total }})
+        </div>
+    </div>
+    
+</div>
+
+<div class="offcanvas offcanvas-end shadow-lg" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="aim-filter" aria-labelledby="aim-filterLabel">
+    <div class="offcanvas-header">
+        <h4 id="aim-filterLabel" class="mb-0">Filters</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" id="aim-filter-body">
+        
+    </div>
+</div>

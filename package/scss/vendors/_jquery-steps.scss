@@ -1,0 +1,525 @@
+
+.wizard {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+
+	a {
+		outline: 0;
+	}
+
+	ul {
+		list-style: none !important;
+		padding: 0;
+		margin: 0;
+
+		>li {
+			display: block;
+			padding: 0;
+		}
+	}
+
+	>.steps {
+		.current-info {
+			position: absolute;
+			left: -999em;
+		}
+
+		position: relative;
+		display: block;
+		width: 100%;
+
+		.number {
+			font-size: 1.429em;
+		}
+
+		>ul {
+			>li {
+				width: 25%;
+				float: left;
+			}
+		}
+
+		a {
+			display: block;
+			width: auto;
+			margin: 0 0.5em 0.5em;
+			padding: 1em 1em;
+			text-decoration: none;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+
+			&:hover {
+				display: block;
+				width: auto;
+				margin: 0 0.5em 0.5em;
+				padding: 1em 1em;
+				text-decoration: none;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+
+			&:active {
+				display: block;
+				width: auto;
+				margin: 0 0.5em 0.5em;
+				padding: 1em 1em;
+				text-decoration: none;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+		}
+
+		.disabled {
+			a {
+				background: $border-color;
+				color: $muted;
+				cursor: default;
+
+				&:hover {
+					background: $border-color;
+					color: $muted;
+					cursor: default;
+				}
+
+				&:active {
+					background: $border-color;
+					color: $muted;
+					cursor: default;
+				}
+			}
+		}
+
+		.current {
+			a {
+				background: $primary;
+				color: $white;
+				cursor: default;
+
+				&:hover {
+					background: $primary;
+					color: $white;
+					cursor: default;
+				}
+
+				&:active {
+					background: $primary;
+					color: $white;
+					cursor: default;
+				}
+			}
+		}
+
+		.done {
+			a {
+				background: $primary;
+				color: $white;
+
+				&:hover {
+					background: $primary;
+					color: $white;
+				}
+
+				&:active {
+					background: $primary;
+					color: $white;
+				}
+			}
+		}
+
+		.error {
+			a {
+				background: $danger;
+				color: $white;
+
+				&:hover {
+					background: $danger;
+					color: $white;
+				}
+
+				&:active {
+					background: $danger;
+					color: $white;
+				}
+			}
+		}
+	}
+
+	>.content {
+		>.title {
+			position: absolute;
+			left: -999em;
+		}
+
+		background: $border-color;
+		display: block;
+		margin: 0.5em;
+		overflow: hidden;
+		position: relative;
+		width: auto;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+
+		>.body {
+			float: left;
+			width: 100%;
+			height: 95%;
+			padding: 2.5%;
+
+			ul {
+				list-style: disc !important;
+
+				>li {
+					display: list-item;
+				}
+			}
+
+			>iframe {
+				border: 0 none;
+				width: 100%;
+				height: 100%;
+			}
+
+			input {
+				display: block;
+			}
+
+			input[type="checkbox"] {
+				display: inline-block;
+			}
+
+			input.error {
+				background: $light-danger;
+				border: 1px solid $danger;
+				color: $danger;
+			}
+
+			label {
+				display: inline-block;
+				margin-bottom: 0.5em;
+			}
+
+			label.error {
+				color: $danger;
+				display: inline-block;
+				margin-left: 1.5em;
+			}
+		}
+	}
+
+	>.actions {
+		>ul {
+			>li {
+				float: left;
+				margin: 0 0.5em;
+			}
+
+			display: inline-block;
+			text-align: right;
+		}
+
+		position: relative;
+		display: block;
+		text-align: right;
+		width: 100%;
+
+		a {
+			background: $primary;
+			color: $white;
+			display: block;
+			padding: 0.5em 1em;
+			text-decoration: none;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+
+			&:hover {
+				background: $primary;
+				color: $white;
+				display: block;
+				padding: 0.5em 1em;
+				text-decoration: none;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+
+			&:active {
+				background: $primary;
+				color: $white;
+				display: block;
+				padding: 0.5em 1em;
+				text-decoration: none;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+		}
+
+		.disabled {
+			a {
+				background: $border-color;
+				color: $muted;
+
+				&:hover {
+					background: $border-color;
+					color: $muted;
+				}
+
+				&:active {
+					background: $border-color;
+					color: $muted;
+				}
+			}
+		}
+	}
+}
+
+.tabcontrol {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+
+	a {
+		outline: 0;
+	}
+
+	ul {
+		list-style: none !important;
+		padding: 0;
+		margin: 0;
+
+		>li {
+			display: block;
+			padding: 0;
+		}
+	}
+
+	>.steps {
+		.current-info {
+			position: absolute;
+			left: -999em;
+		}
+
+		position: relative;
+		display: block;
+		width: 100%;
+
+		>ul {
+			position: relative;
+			margin: 6px 0 0 0;
+			top: 1px;
+			z-index: 1;
+
+			>li {
+				float: left;
+				margin: 5px 2px 0 0;
+				padding: 1px;
+				-webkit-border-top-left-radius: 5px;
+				-webkit-border-top-right-radius: 5px;
+				-moz-border-radius-topleft: 5px;
+				-moz-border-radius-topright: 5px;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+
+				&:hover {
+					background: $gray-200;
+					border: 1px solid $border-color;
+					padding: 0;
+				}
+
+				>a {
+					color: $dark;
+					display: inline-block;
+					border: 0 none;
+					margin: 0;
+					padding: 10px 30px;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+
+			>li.current {
+				background: $white;
+				border: 1px solid $border-color;
+				border-bottom: 0 none;
+				padding: 0 0 1px 0;
+				margin-top: 0;
+
+				>a {
+					padding: 15px 30px 10px 30px;
+				}
+			}
+		}
+	}
+
+	>.content {
+		>.title {
+			position: absolute;
+			left: -999em;
+		}
+
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		height: 35em;
+		overflow: hidden;
+		border-top: 1px solid $border-color;
+		padding-top: 20px;
+
+		>.body {
+			float: left;
+			position: absolute;
+			width: 95%;
+			height: 95%;
+			padding: 2.5%;
+
+			ul {
+				list-style: disc !important;
+
+				>li {
+					display: list-item;
+				}
+			}
+		}
+	}
+}
+
+.wizard.vertical {
+	.steps {
+		display: inline;
+		float: left;
+		width: 30%;
+
+		ul {
+			li {
+				float: none;
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		margin: 0 2.5% 0.5em 2.5%;
+		width: 65%;
+	}
+
+	.actions {
+		display: inline;
+		float: right;
+		margin: 0 2.5%;
+		width: 95%;
+
+		ul {
+			li {
+				margin: 0 0 0 1em;
+			}
+		}
+	}
+}
+
+.wizard-content {
+	.wizard {
+		.steps {
+			ul {
+				display: table;
+				width: 100%;
+				table-layout: fixed;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				li{
+					display: table-cell;
+					width: auto;
+					vertical-align: top;
+					text-align: center;
+					position: relative;
+				}
+				li.current {
+					a{
+						color: $muted;
+					}
+					.step {
+						border-color: $primary;
+						background-color: $white;
+						color: $primary;
+					}
+				}
+
+				li.done {
+					.step {
+						border-color: $primary;
+						background-color: $primary;
+						color: $white;
+					}
+				}
+			}
+		}
+
+		&.wizard-circle {
+			.steps {
+				ul {
+					li {
+						&.current a{
+							background-color: transparent;
+						}
+						&:after {
+							background-color: $primary;
+						}
+					}
+
+					li {
+						&:before {
+							background-color: $primary;
+						}
+					}
+				}
+			}
+		}
+
+		&.vertical {
+			&.wizard-circle {
+				.steps {
+					ul {
+						li {
+							&:after {
+								background-color: transparent;
+							}
+
+							&:before {
+								background-color: transparent;
+							}
+						}
+					}
+				}
+			}
+		}
+		.actions {
+			ul {
+				li {
+					&.disabled{
+						a{
+							color: $muted;
+							&:hover{
+								color: $white;
+							}
+						}
+					}
+					a {
+						background: $primary;
+						&:hover {
+							background: $primary;
+							color: $white;
+						}
+					}
+				}
+			}
+		}
+	}
+}

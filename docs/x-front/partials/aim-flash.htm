@@ -1,0 +1,32 @@
+<!-- Toast -->
+<div id="liveToast" class="position-fixed toast hide" role="alert" aria-live="assertive" aria-atomic="true" style="top: 20px; right: 20px; z-index: 1000;">
+    <div class="toast-header">
+      <div class="d-flex align-items-center flex-grow-1">
+        <div class="flex-shrink-0">
+            <span class="avatar avatar-soft-primary avatar-circle">
+                <span class="avatar-initials text-center">
+                    <i class="bi-bell nav-info"></i>
+                </span>
+            </span>
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <h5 class="mb-0">{{ 'Notification'|_ }}</h5>
+          <small class="ms-auto">{{ 'now'|_ }}</small>
+        </div>
+        <div class="text-end">
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+    <div class="toast-body">
+        {{ aimflash.message|raw }}
+    </div>
+  </div>
+  <!-- End Toast -->
+
+<script>
+    // INITIALIZATION OF LIVE TOAST
+    // =======================================================
+    var liveToast = new bootstrap.Toast(document.querySelector('#liveToast'));
+    liveToast.show();
+</script>

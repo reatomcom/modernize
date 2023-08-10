@@ -1,0 +1,209 @@
+<aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white  ">
+    <div class="navbar-vertical-container">
+        <div class="navbar-vertical-footer-offset">
+            <!-- Logo -->
+            
+            <a class="navbar-brand" href="/" aria-label="">
+                <img class="navbar-brand-logo" src="/themes/x/assets/svg/logos/logo.svg" alt="" data-hs-theme-appearance="default">
+                <img class="navbar-brand-logo" src="/themes/x/assets/svg/logos-light/logo.svg" alt="" data-hs-theme-appearance="dark">
+                <img class="navbar-brand-logo-mini" src="/themes/x/assets/svg/logos/logo-short.svg" alt="" data-hs-theme-appearance="default">
+                <img class="navbar-brand-logo-mini" src="/themes/x/assets/svg/logos-light/logo-short.svg" alt="" data-hs-theme-appearance="dark">
+            </a>
+            
+            <!-- End Logo -->
+            
+            <!-- Navbar Vertical Toggle -->
+            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+                <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
+                <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
+            </button>
+            
+            <!-- End Navbar Vertical Toggle -->
+            
+            <!-- Content -->
+            <div class="navbar-vertical-content">
+                <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                        <a class="nav-link {{ this.page.id == 'home' ? ' active' : '' }}" href="/" role="button">
+                            <i class="bi-house-door nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Dashboard'|_ }}</span>
+                        </a>
+                        
+                    </div>
+                    {% if user.hasPermission("aim.app.access_products") %}
+                    <span class="dropdown-header mt-4">{{ 'Data'|_ }}</span>
+                    <small class="bi-three-dots nav-subtitle-replacer"></small>
+                    
+                    <div class="nav-item">
+                        <a class="nav-link {{ this.page.id == 'products' ? ' active' : '' }}" href="/products" data-placement="left">
+                            <i class="bi-box-seam nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Products'|_ }} <span class="badge bg-warning rounded-pill ms-1">143</span></span>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-item">
+                        <a class="nav-link {{ this.page.id == 'categories' ? ' active' : '' }}" href="/categories" data-placement="left">
+                            <i class="bi-folder nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Categories'|_ }}</span>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-item">
+                        <a class="nav-link {{ this.page.id == 'shops' ? ' active' : '' }}" href="/shops" data-placement="left">
+                            <i class="bi-shop nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Shops & Suppliers'|_ }}</span>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-item">
+                        <a class="nav-link " href="/notifications" data-placement="left">
+                            <i class="bi-bell nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Notifications'|_ }}</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    <span class="dropdown-header mt-4">{{ 'Analytics'|_ }}</span>
+                    <small class="bi-three-dots nav-subtitle-replacer"></small>
+                    {% if user.hasPermission("aim.app.access_products") %}
+                    <div class="nav-item">
+                        <a class="nav-link " href="/top-products" data-placement="left">
+                            <i class="bi-key nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Top products'|_ }}</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="nav-item">
+                        <a class="nav-link " href="/" data-placement="left">
+                            <i class="bi-grid-1x2 nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Stock status'|_ }}</span>
+                        </a>
+                    </div>
+                    
+                    {% if user.hasPermission("aim.app.access_products") %}
+                    <span class="dropdown-header mt-4">{{ 'Integration'|_ }}</span>
+                    <small class="bi-three-dots nav-subtitle-replacer"></small>            
+                    <div class="nav-item">
+                        <a class="nav-link " href="/widgets" data-placement="left">
+                            <i class="bi-grid-1x2 nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Widgets'|_ }}</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link " href="/api" data-placement="left">
+                            <i class="bi-key nav-icon"></i>
+                            <span class="nav-link-title">{{ 'APIs'|_ }}</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link " href="/webhooks" data-placement="left">
+                            <i class="bi-box-arrow-in-right nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Webhooks'|_ }}</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    
+                    <span class="dropdown-header mt-4">{{ 'Other'|_ }}</span>
+                    <small class="bi-three-dots nav-subtitle-replacer"></small>
+                    
+                    <div class="nav-item">
+                        <a class="nav-link " href="/tickets" data-placement="left">
+                            <i class="bi-grid-1x2 nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Support'|_ }}</span>
+                        </a>
+                    </div>
+                    {% if user.hasPermission("aim.app.access_products") %}
+                    <div class="nav-item">
+                        <a class="nav-link {{ this.page.id == 'users' ? ' active' : '' }}" href="/users" data-placement="left">
+                            <i class="bi-people nav-icon"></i>
+                            <span class="nav-link-title">{{ 'Users'|_ }}</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                </div>
+                
+            </div>
+            <!-- End Content -->
+            
+            <!-- Footer -->
+            <div class="navbar-vertical-footer">
+                <ul class="navbar-vertical-footer-list">
+                    <li class="navbar-vertical-footer-list-item">
+                        <!-- Style Switcher -->
+                        <div class="dropdown dropup">
+                            <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectThemeDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+                                
+                            </button>
+                            
+                            <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectThemeDropdown">
+                                <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
+                                    <i class="bi-moon-stars me-2"></i>
+                                    <span class="text-truncate" title="Auto (system default)">Auto (system default)</span>
+                                </a>
+                                <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
+                                    <i class="bi-brightness-high me-2"></i>
+                                    <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
+                                </a>
+                                <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+                                    <i class="bi-moon me-2"></i>
+                                    <span class="text-truncate" title="Dark">Dark</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- End Style Switcher -->
+                    </li>
+                    
+                    <li class="navbar-vertical-footer-list-item">
+                        <!-- Other Links -->
+                        <div class="dropdown dropup">
+                            <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="otherLinksDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+                                <i class="bi-info-circle"></i>
+                            </button>
+                            
+                            <div class="dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="otherLinksDropdown">
+                                <span class="dropdown-header">{{ 'Help'|_ }}</span>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi-journals dropdown-item-icon"></i>
+                                    <span class="text-truncate" title="{{ 'Resources &amp; tutorials'|_ }}">{{ 'Resources &amp; tutorials'|_ }}</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <span class="dropdown-header">{{ 'Contacts'|_ }}</span>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi-chat-left-dots dropdown-item-icon"></i>
+                                    <span class="text-truncate" title="{{ 'Contact support'|_ }}">{{ 'Contact support'|_ }}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Other Links -->
+                    </li>
+                    
+                    <li class="navbar-vertical-footer-list-item">
+                        <!-- Language -->
+                        <div class="dropdown dropup">
+                            <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectLanguageDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+                                <img class="avatar avatar-xss avatar-circle" src="/themes/x/assets/vendor/flag-icon-css/flags/1x1/{{ activeLocale }}.svg" alt="{{ activeLocale }}">
+                            </button>
+                            <div class="dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectLanguageDropdown">
+                                <span class="dropdown-header">{{ 'Select language'|_ }}</span>
+                                {% for code, name in locales %}
+                                <a class="dropdown-item" href="#" data-request="onSwitchLocale" data-request-data="locale: '{{ code }}'">
+                                    <img class="avatar avatar-xss avatar-circle me-2" src="/themes/x/assets/vendor/flag-icon-css/flags/1x1/{{ code }}.svg" alt="{{ code }}">
+                                    <span class="text-truncate" title="{{ name }}">{{ name }}</span>
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <!-- End Language -->
+                    </li>
+                </ul>
+            </div>
+            <!-- End Footer -->
+        </div>
+    </div>
+</aside>

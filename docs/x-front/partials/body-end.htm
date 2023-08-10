@@ -1,0 +1,205 @@
+<div id="aim-flash"></div>
+<div id="aim-modal"></div>
+
+  <!-- ========== SECONDARY CONTENTS ========== -->
+
+  <!-- Welcome Message Modal -->
+  <div class="modal fade" id="welcomeMessageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-close">
+          <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi-x-lg"></i>
+          </button>
+        </div>
+        <!-- End Header -->
+
+        <!-- Body -->
+        <div class="modal-body p-sm-5">
+          <div class="text-center">
+            <div class="w-75 w-sm-50 mx-auto mb-4">
+              <img class="img-fluid" src="/themes/x/assets/svg/illustrations/oc-collaboration.svg" alt="Image Description" data-hs-theme-appearance="default">
+              <img class="img-fluid" src="/themes/x/assets/svg/illustrations-light/oc-collaboration.svg" alt="Image Description" data-hs-theme-appearance="dark">
+            </div>
+
+            <h4 class="h1">Welcome to Front</h4>
+
+            <p>We're happy to see you in our community.</p>
+          </div>
+        </div>
+        <!-- End Body -->
+
+        <!-- Footer -->
+        <div class="modal-footer d-block text-center py-sm-5">
+          <small class="text-cap text-muted">Trusted by the world's best teams</small>
+
+          <div class="w-85 mx-auto">
+            <div class="row justify-content-between">
+              <div class="col">
+                <img class="img-fluid" src="/themes/x/assets/svg/brands/gitlab-gray.svg" alt="Image Description">
+              </div>
+              <div class="col">
+                <img class="img-fluid" src="/themes/x/assets/svg/brands/fitbit-gray.svg" alt="Image Description">
+              </div>
+              <div class="col">
+                <img class="img-fluid" src="/themes/x/assets/svg/brands/flow-xo-gray.svg" alt="Image Description">
+              </div>
+              <div class="col">
+                <img class="img-fluid" src="/themes/x/assets/svg/brands/layar-gray.svg" alt="Image Description">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Footer -->
+      </div>
+    </div>
+  </div>
+  <!-- End Welcome Message Modal -->
+
+  <!-- ========== END SECONDARY CONTENTS ========== -->
+
+  <!-- JS Global Compulsory  -->
+  <script src="/themes/x/assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="/themes/x/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+  <script src="/themes/x/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JS Implementing Plugins -->
+  <script src="/themes/x/assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js"></script>
+  <script src="/themes/x/assets/vendor/hs-form-search/dist/hs-form-search.min.js"></script>
+
+  <script src="/themes/x/assets/js/chartjs/chart.min.js"></script>
+  <script src="/themes/x/assets/vendor/daterangepicker/moment.min.js"></script>
+  <script src="/themes/x/assets/vendor/daterangepicker/daterangepicker.js"></script>
+  <script src="/themes/x/assets/vendor/tom-select/dist/js/tom-select.complete.min.js"></script>
+  <script src="/themes/x/assets/vendor/clipboard/dist/clipboard.min.js"></script>
+
+  <!-- JS Front -->
+  <script src="/themes/x/assets/js/theme.min.js"></script>
+  <script src="/themes/x/assets/js/hs.theme-appearance-charts.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // INITIALIZATION OF DATERANGEPICKER
+      // =======================================================
+      $('.js-daterangepicker').daterangepicker();
+
+      $('.js-daterangepicker-times').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+          format: 'M/DD hh:mm A'
+        }
+      });
+
+      var start = moment();
+      var end = moment();
+
+      function cb(start, end) {
+        $('#js-daterangepicker-predefined .js-daterangepicker-predefined-preview').html(start.format('MMM D') + ' - ' + end.format('MMM D, YYYY'));
+      }
+
+      $('#js-daterangepicker-predefined').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+      }, cb);
+
+      cb(start, end);
+    });
+  </script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    (function() {
+      window.onload = function () {
+        
+
+        // INITIALIZATION OF NAVBAR VERTICAL ASIDE
+        // =======================================================
+        new HSSideNav('.js-navbar-vertical-aside').init()
+
+
+        // INITIALIZATION OF FORM SEARCH
+        // =======================================================
+        const HSFormSearchInstance = new HSFormSearch('.js-form-search')
+
+        if (HSFormSearchInstance.collection.length) {
+          HSFormSearchInstance.getItem(1).on('close', function (el) {
+            el.classList.remove('top-0')
+          })
+
+          document.querySelector('.js-form-search-mobile-toggle').addEventListener('click', e => {
+            let dataOptions = JSON.parse(e.currentTarget.getAttribute('data-hs-form-search-options')),
+              $menu = document.querySelector(dataOptions.dropMenuElement)
+
+            $menu.classList.add('top-0')
+            $menu.style.left = 0
+          })
+        }
+
+
+        // INITIALIZATION OF BOOTSTRAP DROPDOWN
+        // =======================================================
+        HSBsDropdown.init()
+
+        // INITIALIZATION OF SELECT
+        // =======================================================
+        HSCore.components.HSTomSelect.init('.js-select')
+
+
+        // INITIALIZATION OF CLIPBOARD
+        // =======================================================
+        HSCore.components.HSClipboard.init('.js-clipboard')
+      }
+    })()
+  </script>
+
+  <!-- Style Switcher JS -->
+
+  <script>
+      (function () {
+        // STYLE SWITCHER
+        // =======================================================
+        const $dropdownBtn = document.getElementById('selectThemeDropdown') // Dropdowon trigger
+        const $variants = document.querySelectorAll(`[aria-labelledby="selectThemeDropdown"] [data-icon]`) // All items of the dropdown
+
+        // Function to set active style in the dorpdown menu and set icon for dropdown trigger
+        const setActiveStyle = function () {
+          $variants.forEach($item => {
+            if ($item.getAttribute('data-value') === HSThemeAppearance.getOriginalAppearance()) {
+              $dropdownBtn.innerHTML = `<i class="${$item.getAttribute('data-icon')}" />`
+              return $item.classList.add('active')
+            }
+
+            $item.classList.remove('active')
+          })
+        }
+
+        // Add a click event to all items of the dropdown to set the style
+        $variants.forEach(function ($item) {
+          $item.addEventListener('click', function () {
+            HSThemeAppearance.setAppearance($item.getAttribute('data-value'))
+          })
+        })
+
+        // Call the setActiveStyle on load page
+        setActiveStyle()
+
+        // Add event listener on change style to call the setActiveStyle function
+        window.addEventListener('on-hs-appearance-change', function () {
+          setActiveStyle()
+        })
+      })()
+    </script>
+
+  <!-- End Style Switcher JS -->
